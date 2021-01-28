@@ -1,24 +1,24 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as React from 'react';
-import {FirstScreen} from './screen/first';
-import {SecondScreen} from './screen/second';
-import {View, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { FirstScreen } from './screen/first';
+import { SecondScreen } from './screen/second';
+import { View, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const NavigationDrawerStructure = (props: {
-  navigationProps: {toggleDrawer: () => void};
+  navigationProps: { toggleDrawer: () => void };
 }) => {
   const toggleDrawer = () => {
     props.navigationProps.toggleDrawer();
   };
 
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={{ flexDirection: 'row' }}>
       <TouchableOpacity onPress={() => toggleDrawer()}>
         {/*Donute Button Image */}
         <Image
@@ -97,16 +97,16 @@ export const App = () => {
           width: 240,
         }}
         drawerContentOptions={{
-          itemStyle: {marginVertical: 5},
+          itemStyle: { marginVertical: 5 },
         }}>
         <Drawer.Screen
           name="FirstScreen"
-          options={{drawerLabel: 'First'}}
+          options={{ drawerLabel: 'First' }}
           component={firstScreenStack}
         />
         <Drawer.Screen
           name="SecondScreen"
-          options={{drawerLabel: 'Second'}}
+          options={{ drawerLabel: 'Second' }}
           component={secondScreenStack}
         />
       </Drawer.Navigator>
